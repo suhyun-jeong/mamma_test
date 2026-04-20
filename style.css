@@ -86,7 +86,7 @@ main {
 }
 
 .content-section {
-    padding: 60px 0;
+    padding: 30px 0;
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -177,7 +177,7 @@ h2 { font-size: 1.5rem; border-left: 5px solid var(--primary-color); padding-lef
 
 #calculator-form button:hover { background-color: #45a049; }
 
-.input-guidance { text-align: center; font-size: 0.85rem; color: var(--text-light); margin-bottom: 40px; }
+.input-guidance { text-align: center; font-size: 0.85rem; color: var(--text-light); margin-bottom: 20px; }
 
 /* Result Area */
 .legend {
@@ -250,12 +250,12 @@ h2 { font-size: 1.5rem; border-left: 5px solid var(--primary-color); padding-lef
 
 /* Ad Container */
 .ad-container {
-    margin: 40px auto;
+    margin: 20px auto;
     text-align: center;
     background: #f1f2f6;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
-    min-height: 100px;
+    min-height: 80px;
 }
 
 /* Footer */
