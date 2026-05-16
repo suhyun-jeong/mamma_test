@@ -1,37 +1,38 @@
-const stages = {
-    10: {
-        name: '10배죽',
-        age: '만 6~7개월',
-        description: '아주 부드럽고 묽은 상태로, 이유식을 시작하거나 초기 적응에 적합한 단계예요.',
-        ratios: { rice: 6, grains: 0, meat: 2, veg: 4, water: 88 }
-    },
-    7: {
-        name: '7배죽',
-        age: '만 7~8개월',
-        description: '조금씩 농도를 높이며 다양한 재료를 시도하는 단계예요.',
-        ratios: { rice: 8, grains: 2, meat: 4, veg: 6, water: 80 }
-    },
-    5: {
-        name: '5배죽',
-        age: '만 8~9개월',
-        description: '부드럽지만 적당한 농도로, 가장 많이 사용하는 기본 단계예요.',
-        ratios: { rice: 10, grains: 3, meat: 8, veg: 12, water: 67 }
-    },
-    3: {
-        name: '3배죽',
-        age: '만 9~11개월',
-        description: '걸쭉한 식감으로 씹는 연습을 시작하는 단계예요.',
-        ratios: { rice: 12, grains: 5, meat: 10, veg: 15, water: 58 }
-    },
-    2: {
-        name: '2배죽(진밥)',
-        age: '만 12~18개월',
-        description: '일반식으로 넘어가기 전, 밥 형태에 가까운 단계예요.',
-        ratios: { rice: 18, grains: 10, meat: 15, veg: 20, water: 37 }
-    }
-};
-
 document.addEventListener('DOMContentLoaded', () => {
+    //<editor-fold desc="이유식 계산기 로직">
+    const stages = {
+        10: {
+            name: '10배죽',
+            age: '만 4~6개월',
+            description: '아주 부드럽고 묽은 상태로, 이유식을 시작하거나 초기 적응에 적합한 단계예요.',
+            ratios: { rice: 6, grains: 0, meat: 2, veg: 4, water: 88 }
+        },
+        7: {
+            name: '7배죽',
+            age: '만 7~9개월',
+            description: '조금씩 농도를 높이며 다양한 재료를 시도하는 단계예요.',
+            ratios: { rice: 8, grains: 2, meat: 4, veg: 6, water: 80 }
+        },
+        5: {
+            name: '5배죽',
+            age: '만 10~12개월',
+            description: '부드럽지만 적당한 농도로, 가장 많이 사용하는 기본 단계예요.',
+            ratios: { rice: 10, grains: 3, meat: 8, veg: 12, water: 67 }
+        },
+        3: {
+            name: '3배죽',
+            age: '만 10~12개월',
+            description: '걸쭉한 식감으로 씹는 연습을 시작하는 단계예요.',
+            ratios: { rice: 12, grains: 5, meat: 10, veg: 15, water: 58 }
+        },
+        2: {
+            name: '2배죽(진밥)',
+            age: '만 12개월 이후',
+            description: '일반식으로 넘어가기 전, 밥 형태에 가까운 단계예요.',
+            ratios: { rice: 18, grains: 10, meat: 15, veg: 20, water: 37 }
+        }
+    };
+
     const stageRadios = document.querySelectorAll('input[name="stage"]');
     const stageAge = document.getElementById('stage-age');
     const stageInfo = document.getElementById('stage-info');
@@ -65,9 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         for (const [key, bar] of Object.entries(bars)) {
+            if (!bar) continue;
             const percentage = ratios[key];
             bar.style.width = `${percentage}%`;
-            bar.textContent = percentage > 0 ? `${percentage}%` : '';
+            bar.textContent = percentage > 5 ? `${percentage}%` : '';
         }
     }
 
@@ -88,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (totalAmount > 1200) {
                 errorMessage = '최대 1200g까지 입력할 수 있어요.';
             }
-            resultsList.innerHTML = `<li class='error'>${errorMessage}</li>`;
+            resultsList.innerHTML = `<li class='error' style='justify-content: center; color: red;'>${errorMessage}</li>`;
             return;
         }
 
@@ -97,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             '잡곡': Math.round(totalAmount * (stageData.ratios.grains / 100)),
             '고기': Math.round(totalAmount * (stageData.ratios.meat / 100)),
             '야채': Math.round(totalAmount * (stageData.ratios.veg / 100)),
-            '물': Math.round(totalAmount * (stageData.ratios.water / 100) / 5) * 5
+            '물': Math.round(totalAmount * (stageData.ratios.water / 100))
         };
         
         const icons = {
@@ -121,13 +123,90 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    stageRadios.forEach(radio => radio.addEventListener('change', updateStageInfo));
-    form.addEventListener('submit', calculate);
+    if (form) {
+        stageRadios.forEach(radio => radio.addEventListener('change', updateStageInfo));
+        form.addEventListener('submit', calculate);
+        updateStageInfo();
+    }
+    //</editor-fold>
 
-    // Initial setup
-    updateStageInfo();
+    //<editor-fold desc="추천 식재료 갤러리 로직">
+    const galleries = {
+        initial: document.getElementById('gallery-initial'),
+        mid: document.getElementById('gallery-mid'),
+        late: document.getElementById('gallery-late')
+    };
 
-    // Smooth scrolling for navigation
+    const modal = document.getElementById('ingredient-modal');
+    const closeModalButton = document.querySelector('.close-button');
+
+    function populateGalleries() {
+        for (const stage in galleries) {
+            const gallery = galleries[stage];
+            if (gallery) {
+                gallery.innerHTML = ''; // Clear existing items
+                if (typeof ingredientsData !== 'undefined' && ingredientsData[stage]) {
+                    ingredientsData[stage].forEach(ingredient => {
+                        const item = document.createElement('div');
+                        item.className = 'ingredient-item';
+
+                        const img = document.createElement('img');
+                        img.src = ingredient.img;
+                        img.alt = ingredient.name;
+
+                        const span = document.createElement('span');
+                        span.textContent = ingredient.name;
+
+                        item.appendChild(img);
+                        item.appendChild(span);
+                        
+                        item.addEventListener('click', () => openModal(ingredient));
+                        gallery.appendChild(item);
+                    });
+                }
+            }
+        }
+    }
+
+    function openModal(ingredient) {
+        if (!modal) return;
+        document.getElementById('modal-img').src = ingredient.img;
+        document.getElementById('modal-title').textContent = ingredient.name;
+        document.getElementById('modal-cleaning').textContent = ingredient.cleaning;
+        document.getElementById('modal-cubing').textContent = ingredient.cubing;
+        document.getElementById('modal-pairing').textContent = ingredient.pairing;
+        document.getElementById('modal-notes').textContent = ingredient.notes;
+        modal.style.display = 'block';
+    }
+
+    function closeModal() {
+        if (!modal) return;
+        modal.style.display = 'none';
+    }
+
+    if (modal) {
+        closeModalButton.addEventListener('click', closeModal);
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+    }
+
+    // 갤러리 좌/우 스크롤
+    document.querySelectorAll('.gallery-row-container .arrow').forEach(arrow => {
+        arrow.addEventListener('click', function() {
+            const row = this.parentElement.querySelector('.gallery-row');
+            const scrollAmount = this.classList.contains('prev') ? -300 : 300;
+            row.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    });
+
+    populateGalleries();
+
+    //</editor-fold>
+
+    //<editor-fold desc="부드러운 스크롤링">
     document.querySelectorAll('header nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -145,4 +224,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    //</editor-fold>
 });

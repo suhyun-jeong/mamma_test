@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data: https:;">
     <meta name="google-adsense-account" content="ca-pub-3704915828555227">
-    <meta name="description" content="우리 아이를 위한 맞춤형 이유식 배죽 계산기. 초기, 중기, 후기 단계별 쌀과 물의 비율을 정확하게 계산해드립니다.">
+    <meta name="description" content="우리 아이를 위한 맞춤형 이유식 배죽 계산기. 초기, 중기, 후기 단계별 쌀과 물의 비율을 정확하게 계산해드립니다. 이유식 레시피와 유용한 Q&A 정보까지 확인하세요.">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3704915828555227"
      crossorigin="anonymous"></script>
-    <title>이유식 배죽 계산기 - 단계별 맞춤 비율 가이드</title>
+    <title>이유식 배죽 계산기 - 단계별 맞춤 비율, 레시피, 가이드</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,8 +18,9 @@
             <ul class="nav-menu">
                 <li><a href="#calculator">계산기</a></li>
                 <li><a href="#guide">이유식 가이드</a></li>
+                <li><a href="#ingredients">추천 식재료</a></li>
+                <li><a href="#qa">이유식 Q&A</a></li>
                 <li><a href="#about">소개</a></li>
-                <li><a href="#privacy">개인정보처리방침</a></li>
             </ul>
         </nav>
     </header>
@@ -32,15 +34,15 @@
 
                 <div class="stage-selection">
                     <input type="radio" id="stage-10" name="stage" value="10">
-                    <label for="stage-10">10배죽</label>
+                    <label for="stage-10">초기 (10배)</label>
                     <input type="radio" id="stage-7" name="stage" value="7">
-                    <label for="stage-7">7배죽</label>
+                    <label for="stage-7">중기 (7배)</label>
                     <input type="radio" id="stage-5" name="stage" value="5" checked>
-                    <label for="stage-5">5배죽</label>
+                    <label for="stage-5">후기 (5배)</label>
                     <input type="radio" id="stage-3" name="stage" value="3">
-                    <label for="stage-3">3배죽</label>
+                    <label for="stage-3">완료기 (3배)</label>
                     <input type="radio" id="stage-2" name="stage" value="2">
-                    <label for="stage-2">2배죽(진밥)</label>
+                    <label for="stage-2">유아식 (진밥)</label>
                 </div>
 
                 <div class="stage-description">
@@ -84,23 +86,101 @@
         <!-- 가이드 섹션 -->
         <section id="guide" class="content-section">
             <div class="info-card">
-                <h2>단계별 이유식 가이드</h2>
+                <h2>단계별 이유식 완벽 가이드</h2>
+                <p class="section-intro">
+                    우리 아기의 건강한 성장을 위한 첫걸음, 이유식! 언제 어떻게 시작해야 할지 막막한 부모님들을 위해 준비했습니다.<br>
+                    각 단계별 특징과 식단 관리법, 추천 식재료까지 꼼꼼하게 확인하고 우리 아기에게 딱 맞는 이유식을 만들어주세요.
+                </p>
                 <div class="guide-grid">
                     <div class="guide-item">
-                        <h3>초기 이유식 (10배죽)</h3>
-                        <p>생후 4~6개월경 시작하며, 쌀미음 형태로 아주 묽게 진행합니다. 처음 음식을 접하는 단계이므로 알레르기 반응을 잘 살펴야 합니다.</p>
+                        <h3>초기 이유식 (만 4~6개월)</h3>
+                        <p><strong>특징:</strong> 생애 첫 음식을 경험하는 시기. 모유나 분유만으로 부족한 철분을 보충하고, 음식을 씹고 삼키는 연습을 시작합니다. 쌀미음처럼 부드럽고 묽은 질감으로 시작하여 점차 농도를 조절합니다.<br>
+                        <strong>식단:</strong> 하루 1회, 30~80g 정도가 적당하며, 오전에 수유하기 전에 먹이는 것이 좋습니다. 쌀미음으로 시작하여 3~4일 간격으로 새로운 채소를 하나씩 추가하며 알레르기 반응을 살핍니다.<br>
+                        <strong>추천 식재료:</strong> 쌀, 찹쌀, 감자, 고구마, 단호박, 브로콜리, 청경채, 소고기(기름 없는 부위)
+                        </p>
                     </div>
                     <div class="guide-item">
-                        <h3>중기 이유식 (7~5배죽)</h3>
-                        <p>생후 7~8개월경 시작하며, 알갱이가 약간 있는 죽 형태입니다. 단백질 섭취를 위해 고기와 잎채소를 골고루 섞어줍니다.</p>
+                        <h3>중기 이유식 (만 7~9개월)</h3>
+                        <p><strong>특징:</strong> 혀와 잇몸으로 으깰 수 있는 작은 알갱이가 있는 죽 형태. 다양한 식재료를 경험하며 미각을 발달시키고, 씹는 능력을 향상시키는 중요한 시기입니다.<br>
+                        <strong>식단:</strong> 하루 2회, 80~120g 정도를 먹이며, 오전과 오후로 나누어 규칙적인 식사 습관을 들입니다. 소고기, 닭고기 등 단백질 섭취를 본격적으로 늘리고, 여러 가지 채소를 혼합하여 영양 균형을 맞춥니다.<br>
+                        <strong>추천 식재료:</strong> 쌀, 보리, 닭고기, 대구살, 계란 노른자, 시금치, 당근, 양파, 버섯류
+                        </p>
                     </div>
                     <div class="guide-item">
-                        <h3>후기 이유식 (3배죽)</h3>
-                        <p>생후 9~11개월경 시작하며, 잇몸으로 으깰 수 있는 무른 밥 형태입니다. 하루 세 번 규칙적인 식사 습관을 기르는 시기입니다.</p>
+                        <h3>후기 이유식 (만 10~12개월)</h3>
+                        <p><strong>특징:</strong> 잇몸으로도 쉽게 으깰 수 있는 무른 밥(진밥) 형태. 자기주도이유식(BLW)을 병행하며 스스로 먹는 즐거움을 알려줄 수 있습니다. 다양한 맛과 질감에 익숙해지는 시기입니다.<br>
+                        <strong>식단:</strong> 하루 3회, 120~180g을 어른 식사 시간에 맞춰 제공하여 식사 예절을 익히게 합니다. 쌀과 잡곡을 섞어 영양을 더하고, 핑거푸드를 간식으로 제공하여 소근육 발달을 돕습니다.<br>
+                        <strong>추천 식재료:</strong> 진밥, 흑미, 퀴노아, 두부, 소고기 안심, 새우, 각종 해산물(알레르기 주의), 무른 과일류
+                        </p>
                     </div>
                     <div class="guide-item">
-                        <h3>완료기 이유식 (2배죽)</h3>
-                        <p>생후 12개월 이후 시작하며, 진밥 형태로 성인 식사와 유사해집니다. 간을 거의 하지 않은 영양가 있는 반찬과 함께 제공합니다.</p>
+                        <h3>완료기/유아식 (만 12개월 이후)</h3>
+                        <p><strong>특징:</strong> 어른 밥과 비슷한 진밥에 국, 반찬 형태의 식사. 가족과 함께 식사하며 사회성을 기르고, 건강한 식습관을 형성하는 결정적인 시기입니다. 간은 최대한 싱겁게 합니다.<br>
+                        <strong>식단:</strong> 하루 3번의 식사와 1~2번의 간식. 영양 균형을 맞춘 다양한 반찬(국, 고기/생선, 채소)을 제공합니다. 아이가 좋아하는 음식과 새로운 음식을 조화롭게 구성하여 편식을 예방합니다.<br>
+                        <strong>추천 식재료:</strong> 거의 모든 식재료 사용 가능. 단, 짜고 맵고 기름진 음식, 가공식품은 피하고 자연 식재료 위주로 식단을 구성합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 추천 식재료 섹션 -->
+        <section id="ingredients" class="content-section">
+            <div class="info-card">
+                <h2>시기별 추천 식재료</h2>
+                <p class="section-intro">이미지를 클릭하면 손질법, 보관법 등 상세한 정보를 확인할 수 있습니다.</p>
+                
+                <div class="ingredient-gallery">
+                    <h3>초기 (만 4~6개월)</h3>
+                    <div class="gallery-row-container">
+                        <button class="arrow prev">&lt;</button>
+                        <div class="gallery-row" id="gallery-initial">
+                            <!-- 식재료 아이템이 여기에 동적으로 추가됩니다 -->
+                        </div>
+                        <button class="arrow next">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="ingredient-gallery">
+                    <h3>중기 (만 7~9개월)</h3>
+                    <div class="gallery-row-container">
+                        <button class="arrow prev">&lt;</button>
+                        <div class="gallery-row" id="gallery-mid">
+                            <!-- 식재료 아이템이 여기에 동적으로 추가됩니다 -->
+                        </div>
+                        <button class="arrow next">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="ingredient-gallery">
+                    <h3>후기/완료기 (만 10개월~)</h3>
+                    <div class="gallery-row-container">
+                        <button class="arrow prev">&lt;</button>
+                        <div class="gallery-row" id="gallery-late">
+                            <!-- 식재료 아이템이 여기에 동적으로 추가됩니다 -->
+                        </div>
+                        <button class="arrow next">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Q&A 섹션 -->
+        <section id="qa" class="content-section">
+            <div class="info-card">
+                <h2>이유식 자주 묻는 질문 (Q&A)</h2>
+                <div class="qa-grid">
+                    <div class="qa-item">
+                        <h4>Q. 이유식, 꼭 만들어야 하나요?</h4>
+                        <p>A. 물론 시판 이유식도 훌륭한 대안이 될 수 있습니다. 하지만 직접 이유식을 만들면 아기의 입맛과 알레르기 반응에 맞춰 식재료를 유연하게 조절할 수 있고, 더 신선하고 건강한 재료를 사용할 수 있다는 장점이 있습니다. '맘마계산기'와 함께라면 이유식 만들기가 훨씬 수월해질 거예요.</p>
+                    </div>
+                    <div class="qa-item">
+                        <h4>Q. 남은 이유식은 어떻게 보관해야 하나요?</h4>
+                        <p>A. 한 번 먹인 이유식은 침이 닿아 세균이 번식하기 쉬우므로 남았더라도 버리는 것이 안전합니다. 먹기 전 덜어놓은 이유식은 냉장 보관 시 2일까지, 냉동 보관 시 7일까지 가능합니다. 큐브 형태로 얼려두면 다음 이유식을 만들 때 편리하게 사용할 수 있습니다.</p>
+                    </div>
+                    <div class="qa-item">
+                        <h4>Q. 아기가 이유식을 잘 안 먹어요. 어떡하죠?</h4>
+                        <p>A. 아기가 새로운 맛과 질감에 적응할 시간이 필요합니다. 억지로 먹이기보다는 즐거운 식사 분위기를 만들어주는 것이 중요합니다. 식사 시간을 정해두고, 약간 배고플 때 이유식을 시도해보세요. 특정 재료를 거부한다면 잠시 중단했다가 며칠 후 다른 형태(예: 퓨레 대신 찜)로 다시 시도해보는 것도 좋은 방법입니다.</p>
                     </div>
                 </div>
             </div>
@@ -109,15 +189,21 @@
         <!-- 소개 섹션 -->
         <section id="about" class="content-section">
             <div class="info-card">
-                <h2>맘마계산기 소개</h2>
-                <p>맘마계산기는 제가 이유식을 시작하면서 제일 어려웠던 비율 계산을 한 눈에 보기 쉽게 사용해보고자 만들었습니다. 쌀, 잡곡, 고기, 야채의 권장 비율을 바탕으로 우리 아이 단계별로 딱 맞는 이유식을 만들어보세요.</p>
-                <p>문의사항: <a href="mailto:studio.mulgyul@gmail.com">studio.mulgyul@gmail.com</a></p>
+                <h2>맘마계산기 이야기</h2>
+                <p>
+                    '맘마계산기'는 첫 아이의 이유식을 만들며 겪었던 어려움에서 시작되었습니다. 매번 달라지는 재료의 양, 복잡한 비율 계산에 허둥대던 경험, 저만 겪는 것은 아닐 거라 생각했습니다.
+                    <br><br>
+                    이 웹사이트는 과거의 저처럼 이유식 앞에서 막막함을 느끼는 부모님들에게 작지만 확실한 도움을 드리고자 만들었습니다. 단순한 계산기를 넘어, 이유식의 전 과정에 필요한 정보와 팁을 공유하며 '함께 키우는 즐거움'을 나누는 공간이 되기를 바랍니다.
+                    <br><br>
+                    우리 아기들의 건강한 첫걸음을 맘마계산기가 항상 응원하겠습니다.
+                </p>
+                <p>문의: <a href="mailto:studio.mulgyul@gmail.com">studio.mulgyul@gmail.com</a></p>
             </div>
         </section>
 
-        <!-- 개인정보처리방침 섹션 -->
-        <section id="privacy" class="content-section">
-            <div class="info-card">
+        <!-- 개인정보처리방침은 그대로 유지 -->
+        <section id="privacy" class="content-section" style="display:none;">
+             <div class="info-card">
                 <h2>개인정보처리방침</h2>
                 <p>본 사이트는 사용자의 어떠한 개인정보도 수집하거나 저장하지 않습니다. 계산기에 입력된 수치는 브라우저 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
                 <p>Google AdSense를 통해 맞춤형 광고를 제공할 수 있으며, 이 과정에서 쿠키(Cookie)가 사용될 수 있습니다. 사용자는 브라우저 설정에서 쿠키 수집을 거부할 수 있습니다.</p>
@@ -126,9 +212,32 @@
     </main>
 
     <footer>
+        <p><a href="#privacy">개인정보처리방침</a></p>
         <p>&copy; 2026 맘마계산기. All rights reserved.</p>
     </footer>
 
+    <!-- 식재료 상세 정보 Modal -->
+    <div id="ingredient-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img id="modal-img" src="" alt="식재료 이미지">
+                </div>
+                <div class="modal-description-container">
+                    <h3 id="modal-title"></h3>
+                    <div id="modal-details">
+                        <p><strong>세척 방법:</strong> <span id="modal-cleaning"></span></p>
+                        <p><strong>큐브 만들기 방법:</strong> <span id="modal-cubing"></span></p>
+                        <p><strong>어울리는 식재료:</strong> <span id="modal-pairing"></span></p>
+                        <p><strong>특이사항:</strong> <span id="modal-notes"></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ingredients.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
