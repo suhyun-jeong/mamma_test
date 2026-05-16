@@ -153,6 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         const img = document.createElement('img');
                         img.src = ingredient.img;
                         img.alt = ingredient.name;
+                        // 이미지 로드 실패 시 기본 맘마 아이콘으로 대체
+                        img.onerror = () => {
+                            img.src = 'https://cdn-icons-png.flaticon.com/512/3050/3050130.png'; 
+                            img.style.padding = '20px';
+                            img.style.backgroundColor = '#f1f2f6';
+                        };
 
                         const span = document.createElement('span');
                         span.textContent = ingredient.name;
