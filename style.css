@@ -282,7 +282,7 @@ h4 { font-size: 1rem; color: var(--primary-color); margin-bottom: 0.5rem;}
 }
 .gallery-row {
     display: flex;
-    gap: 20px;
+    gap: 10px;
     padding: 15px 5px;
     width: 100%;
     flex-wrap: wrap;
@@ -292,35 +292,18 @@ h4 { font-size: 1rem; color: var(--primary-color); margin-bottom: 0.5rem;}
 }
 
 .ingredient-item {
-    flex: 0 0 110px;
-    text-align: center;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 500;
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.ingredient-item img {
-    width: 100px;
-    height: 100px;
-    border-radius: 18px;
-    background-color: #f1f2f6;
-    object-fit: cover;
-    margin-bottom: 10px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
     transition: all 0.3s ease;
 }
-.ingredient-item:hover img {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-}
-.ingredient-item span {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-color);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
+
+.ingredient-item:hover {
+    background-color: #ced4da;
+    transform: translateY(-2px);
 }
 
 /* Modal Styling */
@@ -366,7 +349,7 @@ h4 { font-size: 1rem; color: var(--primary-color); margin-bottom: 0.5rem;}
     gap: 30px;
 }
 .modal-image-container {
-    flex: 0 0 150px;
+    display: none; /* Hide the image container */
 }
 #modal-img {
     width: 150px;
